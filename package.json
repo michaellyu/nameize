@@ -1,7 +1,7 @@
 {
-  "name": "namelize",
-  "version": "0.1.1",
-  "description": "camelize, snakelize",
+  "name": "nameize",
+  "version": "0.2.0",
+  "description": "camelize, snakeize",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha --require intelli-espower-loader ./test/test.js"

@@ -1,4 +1,4 @@
-function snakelize(target) {
+function snakeize(target) {
   var clone;
   switch (Object.prototype.toString.call(target)) {
     case '[object Object]':
@@ -6,14 +6,14 @@ function snakelize(target) {
       Object
         .keys(target)
         .forEach(function (key) {
-          clone[toSnakeCase(key)] = snakelize(target[key]);
+          clone[snakeCase(key)] = snakeize(target[key]);
         });
       break;
     case '[object Array]':
       clone = [];
       target
         .forEach(function (item, index) {
-          clone[index] = snakelize(item);
+          clone[index] = snakeize(item);
         });
       break;
     default:
@@ -22,7 +22,7 @@ function snakelize(target) {
   return clone;
 }
 
-function toSnakeCase(name) {
+function snakeCase(name) {
   if (!name) return '';
 
   return name
@@ -42,7 +42,7 @@ function camelize(target) {
       Object
         .keys(target)
         .forEach(function (key) {
-          clone[toCamelCase(key)] = camelize(target[key]);
+          clone[camelCase(key)] = camelize(target[key]);
         });
       break;
     case '[object Array]':
@@ -58,7 +58,7 @@ function camelize(target) {
   return clone;
 }
 
-function toCamelCase(name) {
+function camelCase(name) {
   if (!name) return '';
 
   return name
@@ -72,8 +72,8 @@ function toCamelCase(name) {
 
 module.exports = {
   camelize: camelize,
-  snakelize: snakelize,
-  toCamelCase: toCamelCase,
-  toSnakeCase: toSnakeCase
+  snakeize: snakeize,
+  camelCase: camelCase,
+  snakeCase: snakeCase
 };
 

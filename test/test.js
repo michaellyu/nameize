@@ -1,55 +1,55 @@
 var assert = require('power-assert');
-var namelize = require('../index.js');
+var nameize = require('../index.js');
 
-describe('toCamelCase', function () {
-  var toCamelCase = namelize.toCamelCase;
+describe('camelCase', function () {
+  var camelCase = nameize.camelCase;
 
   it('ab_cd_efg to abCdEfg', function () {
-    assert(toCamelCase('ab_cd_efg') === 'abCdEfg');
+    assert(camelCase('ab_cd_efg') === 'abCdEfg');
   });
 
   it('Ab_Cd_Efg to abCdEfg', function () {
-    assert(toCamelCase('Ab_Cd_Efg') === 'abCdEfg');
+    assert(camelCase('Ab_Cd_Efg') === 'abCdEfg');
   });
 
   it('AB_Cd_EfG to aBCdEfG', function () {
-    assert(toCamelCase('AB_Cd_EfG') === 'aBCdEfG');
+    assert(camelCase('AB_Cd_EfG') === 'aBCdEfG');
   });
 
   it('_AB_Cd_EfG to aBCdEfG', function () {
-    assert(toCamelCase('_AB_Cd_EfG') === 'aBCdEfG');
+    assert(camelCase('_AB_Cd_EfG') === 'aBCdEfG');
   });
 
   it('_.AB _Cd/_EfG to aBCdEfG', function () {
-    assert(toCamelCase('_.AB _Cd/_EfG') === 'aBCdEfG');
+    assert(camelCase('_.AB _Cd/_EfG') === 'aBCdEfG');
   });
 
   it('_.AB _Cd/_E\\fG to aBCdEFG', function () {
-    assert(toCamelCase('_.AB _Cd/_E\\fG') === 'aBCdEFG');
+    assert(camelCase('_.AB _Cd/_E\\fG') === 'aBCdEFG');
   });
 });
 
-describe('toSnakeCase', function () {
-  var toSnakeCase = namelize.toSnakeCase;
+describe('snakeCase', function () {
+  var snakeCase = nameize.snakeCase;
 
   it('abCdEfG to ab_cd_ef_g', function () {
-    assert(toSnakeCase('abCdEfG') === 'ab_cd_ef_g');
+    assert(snakeCase('abCdEfG') === 'ab_cd_ef_g');
   });
 
   it('AbCdEfG to ab_cd_ef_g', function () {
-    assert(toSnakeCase('AbCdEfG') === 'ab_cd_ef_g');
+    assert(snakeCase('AbCdEfG') === 'ab_cd_ef_g');
   });
 
   it('Ab_Cd_Ef_G to ab_cd_ef_g', function () {
-    assert(toSnakeCase('Ab_Cd_Ef_G') === 'ab_cd_ef_g');
+    assert(snakeCase('Ab_Cd_Ef_G') === 'ab_cd_ef_g');
   });
 
   it('_Ab_Cd_Ef_G to ab_cd_ef_g', function () {
-    assert(toSnakeCase('_Ab_Cd_Ef_G') === 'ab_cd_ef_g');
+    assert(snakeCase('_Ab_Cd_Ef_G') === 'ab_cd_ef_g');
   });
 
   it('_.Ab _Cd/_Ef_\\G to ab_cd_ef_g', function () {
-    assert(toSnakeCase('_.Ab _Cd/_Ef_\\G') === 'ab_cd_ef_g');
+    assert(snakeCase('_.Ab _Cd/_Ef_\\G') === 'ab_cd_ef_g');
   });
 });
 
@@ -75,7 +75,7 @@ describe('transform all of the properties of the object', function () {
   };
 
   it('camelize', function () {
-    var camelize = namelize.camelize;
+    var camelize = nameize.camelize;
 
     var obj = camelize(snakeObj);
 
@@ -96,10 +96,10 @@ describe('transform all of the properties of the object', function () {
     assert(obj.members[2].lastName === camelObj.members[2].lastName);
   });
 
-  it('snakelize', function () {
-    var snakelize = namelize.snakelize;
+  it('snakeize', function () {
+    var snakeize = nameize.snakeize;
     
-    var obj = snakelize(camelObj);
+    var obj = snakeize(camelObj);
 
     assert(obj.primary_key === snakeObj.primary_key);
     assert(Object.prototype.toString.call(obj.numbers) === '[object Array]');
