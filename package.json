@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/michaellyu/namelize.git"
+    "url": "git+https://github.com/michaellyu/nameize.git"
   },
   "author": "michaellyu <michaellyu@outlook.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/michaellyu/namelize/issues"
+    "url": "https://github.com/michaellyu/nameize/issues"
   },
-  "homepage": "https://github.com/michaellyu/namelize#readme"
+  "homepage": "https://github.com/michaellyu/nameize#readme"
 }
